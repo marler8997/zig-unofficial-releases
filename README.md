@@ -8,4 +8,5 @@ about what breaks between versions.
 
 | Date       | Version                   | Description |
 |------------|---------------------------|-------------|
+| 2023-02-18 | 0.11.0-dev.1639+438b71155 | [NOTES](0.11.0-dev.1639+438b71155.md) build API refactored |
 | 2023-02-01 | 0.11.0-dev.1507+6f13a725a | last version before the build API was changed |
