@@ -8,10 +8,35 @@ about what breaks between versions.
 
 | Date       | Version                   | Description |
 |------------|---------------------------|-------------|
+| 2023-03-18 | [0.11.0-dev.2157+f56f3c582](#0110-dev2157f56f3c582) | zig build parallelism |
 | 2023-03-04 | [0.11.0-dev.1862+e7f128c20](#0110-dev1862e7f128c20) | new for-loop syntax |
 | 2023-02-18 | [0.11.0-dev.1639+438b71155](#0110-dev1639438b71155) | build API refactored |
 | 2023-02-01 | 0.11.0-dev.1507+6f13a725a | last version before the build API was changed |
 
+### 0.11.0-dev.2157+f56f3c582
+
+- zig build parallelism, improved APIs and improved output
+    - many of the Steps' API's have been reworked
+    - compiler/build runner now communicate over a binary protocol
+    - command-line option `-j<N>` added for limiting concurrency
+    - many more enhancements, see https://github.com/ziglang/zig/commit/58edefc6d1716c0731ee2fe672ec8d073651aafb
+- `DeviceBusy` and `InvalidArgument` added to `std.os.WriteError`
+- ability added to import dependencies from `build.zig`
+- added `std.Thread.Pool` and `std.Thread.WaitGroup`
+- added `std.heap.ThreadSafeAllocator`, wraps any allocator to make it thread safe
+- `std.fifo` added `toOwnedSlice`
+- Hot Code Swapping POC
+- C Backend, more big integer/vector support
+- `std.os.linux` added ptrace
+- posix_spawnp declaration and usage eliminated from std, it's trash
+- `ArrayList.insertAssumeCapacity` added
+- added `std.fmt.bytesToHex`
+- `std.http`: connection pooling/keep-alive, compression, relative redirects
+- Crypto:
+    - Kyber post-quantum key encapsulation mechanism added
+    - Configurable side-channel mitigations
+    - `std.crypto.hash.sha3` added TurboSHAKE
+- lots of `x86_64` backend work
 
 ## 0.11.0-dev.1862+e7f128c20
 
