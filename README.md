@@ -8,9 +8,9 @@ about what breaks between versions.
 
 | Date       | Version                   | Description |
 |------------|---------------------------|-------------|
-| 2023-03-18 | [0.11.0-dev.2157+f56f3c582](#0110-dev2157f56f3c582) | zig build parallelism |
-| 2023-03-04 | [0.11.0-dev.1862+e7f128c20](#0110-dev1862e7f128c20) | new for-loop syntax |
-| 2023-02-18 | [0.11.0-dev.1639+438b71155](#0110-dev1639438b71155) | build API refactored |
+| 2023-03-18 | 0.11.0-dev.2157+f56f3c582 [notes](#0110-dev2157f56f3c582) | zig build parallelism |
+| 2023-03-04 | 0.11.0-dev.1862+e7f128c20 [notes](#0110-dev1862e7f128c20) | new for-loop syntax |
+| 2023-02-18 | 0.11.0-dev.1639+438b71155 [notes](#0110-dev1639438b71155) | build API refactored |
 | 2023-02-01 | 0.11.0-dev.1507+6f13a725a | last version before the build API was changed |
 
 ### 0.11.0-dev.2157+f56f3c582
