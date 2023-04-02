@@ -8,10 +8,46 @@ about what breaks between versions.
 
 | Date       | Version                   | Description |
 |------------|---------------------------|-------------|
+| 2023-04-02 | 0.11.0-dev.2336+5b82b4004 [notes](#0110-dev23365b82b4004) |  |
 | 2023-03-18 | 0.11.0-dev.2157+f56f3c582 [notes](#0110-dev2157f56f3c582) | zig build parallelism |
 | 2023-03-04 | 0.11.0-dev.1862+e7f128c20 [notes](#0110-dev1862e7f128c20) | new for-loop syntax |
 | 2023-02-18 | 0.11.0-dev.1639+438b71155 [notes](#0110-dev1639438b71155) | build API refactored |
 | 2023-02-01 | 0.11.0-dev.1507+6f13a725a | last version before the build API was changed |
+
+### 0.11.0-dev.2336+5b82b4004
+
+| Platform | Download Link |
+|----------|---------------|
+| windows | [x86_64](https://ziglang.org/builds/zig-windows-x86_64-0.11.0-dev.2336+5b82b4004.zip) &#124; [x86](https://ziglang.org/builds/zig-windows-x86-0.11.0-dev.2336+5b82b4004.zip) &#124; [aarch64](https://ziglang.org/builds/zig-windows-aarch64-0.11.0-dev.2336+5b82b4004.zip) |
+| macos | [aarch64](https://ziglang.org/builds/zig-macos-aarch64-0.11.0-dev.2336+5b82b4004.tar.xz) &#124; [x86_64](https://ziglang.org/builds/zig-macos-x86_64-0.11.0-dev.2336+5b82b4004.tar.xz) |
+| linux | [x86_64](https://ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.2336+5b82b4004.tar.xz) &#124; [x86](https://ziglang.org/builds/zig-linux-x86-0.11.0-dev.2336+5b82b4004.tar.xz) &#124; [aarch64](https://ziglang.org/builds/zig-linux-aarch64-0.11.0-dev.2336+5b82b4004.tar.xz) &#124; [riscv64](https://ziglang.org/builds/zig-linux-riscv64-0.11.0-dev.2336+5b82b4004.tar.xz) &#124; [powerpc64le](https://ziglang.org/builds/zig-linux-powerpc64le-0.11.0-dev.2336+5b82b4004.tar.xz) &#124; [powerpc](https://ziglang.org/builds/zig-linux-powerpc-0.11.0-dev.2336+5b82b4004.tar.xz) |
+
+- io_uring_prep_provide_buffers argument order changed
+- some public "wrapper stuff" moved from ntdll to `std.os.windows`
+- new builtins: `@workItemId`, `@workGroupId`, `@workGroupSize`
+- `@export` now supports arbitrary values (not just declarations)
+- std.MultiArrayList: set/get added to Slice
+- std.enums: IndexedSet added initOne and initMany
+- std.json: stringify supports `[*:0]const u8`
+- std.os:
+    - ptrace wrapper added for darwin/linux
+- std.json:
+    - support tuples
+- coff:
+    - linker work
+    - dynamicbase default is now true (matches lld)
+- wasm:
+    - __wasm_init_memory implemented
+    - atomics added
+    - linker work
+- libc:
+    - update macOS headers
+- mach linker work, hot code swapping PIC
+- lots of work to x86_64 backend
+- crypto:
+    - Gimli and Xoodoo removed from std to be maintained outside it
+    - Default to ChaCha instead of AES on CPUs without AES support
+
 
 ### 0.11.0-dev.2157+f56f3c582
 
