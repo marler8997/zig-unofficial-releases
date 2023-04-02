@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+import sys
+
+platforms = ({
+    'name': 'windows',
+    'ext': 'zip',
+    'arches': [
+        'x86_64',
+        'x86',
+        'aarch64',
+    ],
+},{
+    'name': 'macos',
+    'ext': 'tar.xz',
+    'arches': [
+        'aarch64',
+        'x86_64',
+    ],
+},{
+    'name': 'linux',
+    'ext': 'tar.xz',
+    'arches': [
+        'x86_64',
+        'x86',
+        'aarch64',
+        'riscv64',
+        'powerpc64le',
+        'powerpc',
+    ],
+})
+
+cmd_args = sys.argv[1:]
+if len(cmd_args) != 1:
+    sys.exit('Usage: make-links VERSION')
+
+version = cmd_args[0]
+print('| Platform | Download Link |')
+print('|----------|----- |')
+for platform in platforms:
+    platform_name = platform['name']
+    ext = platform['ext']
+    links = ''
+    sep = ""
+    for arch in platform['arches']:
+        url = f'https://ziglang.org/builds/zig-{platform_name}-{arch}-{version}.{ext}'
+        links += f'{sep}[{arch}]({url})'
+        sep = " &#124; "
+    print(f'| {platform_name} | {links} |')

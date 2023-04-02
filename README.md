@@ -15,6 +15,12 @@ about what breaks between versions.
 
 ### 0.11.0-dev.2157+f56f3c582
 
+| Platform | Download Link |
+|----------|----- |
+| windows | [x86_64](https://ziglang.org/builds/zig-windows-x86_64-0.11.0-dev.2157+f56f3c582.zip) &#124; [x86](https://ziglang.org/builds/zig-windows-x86-0.11.0-dev.2157+f56f3c582.zip) &#124; [aarch64](https://ziglang.org/builds/zig-windows-aarch64-0.11.0-dev.2157+f56f3c582.zip) |
+| macos | [aarch64](https://ziglang.org/builds/zig-macos-aarch64-0.11.0-dev.2157+f56f3c582.tar.xz) &#124; [x86_64](https://ziglang.org/builds/zig-macos-x86_64-0.11.0-dev.2157+f56f3c582.tar.xz) |
+| linux | [x86_64](https://ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.2157+f56f3c582.tar.xz) &#124; [x86](https://ziglang.org/builds/zig-linux-x86-0.11.0-dev.2157+f56f3c582.tar.xz) &#124; [aarch64](https://ziglang.org/builds/zig-linux-aarch64-0.11.0-dev.2157+f56f3c582.tar.xz) &#124; [riscv64](https://ziglang.org/builds/zig-linux-riscv64-0.11.0-dev.2157+f56f3c582.tar.xz) &#124; [powerpc64le](https://ziglang.org/builds/zig-linux-powerpc64le-0.11.0-dev.2157+f56f3c582.tar.xz) &#124; [powerpc](https://ziglang.org/builds/zig-linux-powerpc-0.11.0-dev.2157+f56f3c582.tar.xz) |
+
 - zig build parallelism, improved APIs and improved output
     - many of the Steps' API's have been reworked
     - compiler/build runner now communicate over a binary protocol
@@ -39,6 +45,12 @@ about what breaks between versions.
 - lots of `x86_64` backend work
 
 ## 0.11.0-dev.1862+e7f128c20
+
+| Platform | Download Link |
+|----------|----- |
+| windows | [x86_64](https://ziglang.org/builds/zig-windows-x86_64-0.11.0-dev.1862+e7f128c20.zip) &#124; [x86](https://ziglang.org/builds/zig-windows-x86-0.11.0-dev.1862+e7f128c20.zip) &#124; [aarch64](https://ziglang.org/builds/zig-windows-aarch64-0.11.0-dev.1862+e7f128c20.zip) |
+| macos | [aarch64](https://ziglang.org/builds/zig-macos-aarch64-0.11.0-dev.1862+e7f128c20.tar.xz) &#124; [x86_64](https://ziglang.org/builds/zig-macos-x86_64-0.11.0-dev.1862+e7f128c20.tar.xz) |
+| linux | [x86_64](https://ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.1862+e7f128c20.tar.xz) &#124; [x86](https://ziglang.org/builds/zig-linux-x86-0.11.0-dev.1862+e7f128c20.tar.xz) &#124; [aarch64](https://ziglang.org/builds/zig-linux-aarch64-0.11.0-dev.1862+e7f128c20.tar.xz) &#124; [riscv64](https://ziglang.org/builds/zig-linux-riscv64-0.11.0-dev.1862+e7f128c20.tar.xz) &#124; [powerpc64le](https://ziglang.org/builds/zig-linux-powerpc64le-0.11.0-dev.1862+e7f128c20.tar.xz) &#124; [powerpc](https://ziglang.org/builds/zig-linux-powerpc-0.11.0-dev.1862+e7f128c20.tar.xz) |
 
 - New for-loop syntax! (Big Breaking Change)
     - zig fmt will autofix the old syntax
@@ -76,6 +88,12 @@ Now becomes:
 
 
 ## 0.11.0-dev.1639+438b71155
+
+| Platform | Download Link |
+|----------|----- |
+| windows | [x86_64](https://ziglang.org/builds/zig-windows-x86_64-0.11.0-dev.1507+6f13a725a.zip) &#124; [x86](https://ziglang.org/builds/zig-windows-x86-0.11.0-dev.1507+6f13a725a.zip) &#124; [aarch64](https://ziglang.org/builds/zig-windows-aarch64-0.11.0-dev.1507+6f13a725a.zip) |
+| macos | [aarch64](https://ziglang.org/builds/zig-macos-aarch64-0.11.0-dev.1507+6f13a725a.tar.xz) &#124; [x86_64](https://ziglang.org/builds/zig-macos-x86_64-0.11.0-dev.1507+6f13a725a.tar.xz) |
+| linux | [x86_64](https://ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.1507+6f13a725a.tar.xz) &#124; [x86](https://ziglang.org/builds/zig-linux-x86-0.11.0-dev.1507+6f13a725a.tar.xz) &#124; [aarch64](https://ziglang.org/builds/zig-linux-aarch64-0.11.0-dev.1507+6f13a725a.tar.xz) &#124; [riscv64](https://ziglang.org/builds/zig-linux-riscv64-0.11.0-dev.1507+6f13a725a.tar.xz) &#124; [powerpc64le](https://ziglang.org/builds/zig-linux-powerpc64le-0.11.0-dev.1507+6f13a725a.tar.xz) &#124; [powerpc](https://ziglang.org/builds/zig-linux-powerpc-0.11.0-dev.1507+6f13a725a.tar.xz) |
 
 - build API refactored
     - https://devlog.hexops.com/2023/zig-0-11-breaking-build-changes/
