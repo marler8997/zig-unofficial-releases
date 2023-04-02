@@ -1,20 +1,28 @@
 # Zig Unofficial Releases
 
-Use this list if you want to use a newer version of Zig than the latest official release.
-Versions will be selected based on when breaking changes come in.
-This will help projects coordinate on what versions to choose and provide information
-about what breaks between versions.
+Releases of Zig done every 2 weeks.
 
+Use this list if you want to use/support a newer version of Zig than the latest release.
 
-| Date       | Version                   | Description |
+Goals:
+
+- help projects coordinate what version of Zig to support and when to update
+- provide a summary of what's going on with Zig development
+
+The summary for each release will prioritize "breaking" and "bigger" public facing
+changes at the top.
+
+# Release Table
+
+| Date       | Version                   | The Gist |
 |------------|---------------------------|-------------|
-| 2023-04-02 | 0.11.0-dev.2336+5b82b4004 [notes](#0110-dev23365b82b4004) |  |
-| 2023-03-18 | 0.11.0-dev.2157+f56f3c582 [notes](#0110-dev2157f56f3c582) | zig build parallelism |
-| 2023-03-04 | 0.11.0-dev.1862+e7f128c20 [notes](#0110-dev1862e7f128c20) | new for-loop syntax |
-| 2023-02-18 | 0.11.0-dev.1639+438b71155 [notes](#0110-dev1639438b71155) | build API refactored |
+| 2023-04-02 | 0.11.0-dev.2336+5b82b4004 [summary](#0110-dev23365b82b4004-summary) |  |
+| 2023-03-18 | 0.11.0-dev.2157+f56f3c582 [summary](#0110-dev2157f56f3c582-summary) | zig build parallelism |
+| 2023-03-04 | 0.11.0-dev.1862+e7f128c20 [summary](#0110-dev1862e7f128c20-summary) | new for-loop syntax |
+| 2023-02-18 | 0.11.0-dev.1639+438b71155 [summary](#0110-dev1639438b71155-summary) | build API refactored |
 | 2023-02-01 | 0.11.0-dev.1507+6f13a725a | last version before the build API was changed |
 
-### 0.11.0-dev.2336+5b82b4004
+### 0.11.0-dev.2336+5b82b4004 Summary
 
 | Platform | Download Link |
 |----------|---------------|
@@ -49,7 +57,7 @@ about what breaks between versions.
     - Default to ChaCha instead of AES on CPUs without AES support
 
 
-### 0.11.0-dev.2157+f56f3c582
+### 0.11.0-dev.2157+f56f3c582 Summary
 
 | Platform | Download Link |
 |----------|----- |
@@ -80,7 +88,7 @@ about what breaks between versions.
     - `std.crypto.hash.sha3` added TurboSHAKE
 - lots of `x86_64` backend work
 
-## 0.11.0-dev.1862+e7f128c20
+## 0.11.0-dev.1862+e7f128c20 Summary
 
 | Platform | Download Link |
 |----------|----- |
@@ -123,7 +131,7 @@ Now becomes:
     - crypto.hash.sha3 has added SHAKE in PR #14756
 
 
-## 0.11.0-dev.1639+438b71155
+## 0.11.0-dev.1639+438b71155 Summary
 
 | Platform | Download Link |
 |----------|----- |
