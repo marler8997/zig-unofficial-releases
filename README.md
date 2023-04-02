@@ -1,5 +1,3 @@
-# Zig Unofficial Releases
-
 Releases of Zig done every 2 weeks.
 
 Use this list if you want to use/support a newer version of Zig than the latest release.
