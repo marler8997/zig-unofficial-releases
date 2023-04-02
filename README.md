@@ -91,9 +91,9 @@ Now becomes:
 
 | Platform | Download Link |
 |----------|----- |
-| windows | [x86_64](https://ziglang.org/builds/zig-windows-x86_64-0.11.0-dev.1507+6f13a725a.zip) &#124; [x86](https://ziglang.org/builds/zig-windows-x86-0.11.0-dev.1507+6f13a725a.zip) &#124; [aarch64](https://ziglang.org/builds/zig-windows-aarch64-0.11.0-dev.1507+6f13a725a.zip) |
-| macos | [aarch64](https://ziglang.org/builds/zig-macos-aarch64-0.11.0-dev.1507+6f13a725a.tar.xz) &#124; [x86_64](https://ziglang.org/builds/zig-macos-x86_64-0.11.0-dev.1507+6f13a725a.tar.xz) |
-| linux | [x86_64](https://ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.1507+6f13a725a.tar.xz) &#124; [x86](https://ziglang.org/builds/zig-linux-x86-0.11.0-dev.1507+6f13a725a.tar.xz) &#124; [aarch64](https://ziglang.org/builds/zig-linux-aarch64-0.11.0-dev.1507+6f13a725a.tar.xz) &#124; [riscv64](https://ziglang.org/builds/zig-linux-riscv64-0.11.0-dev.1507+6f13a725a.tar.xz) &#124; [powerpc64le](https://ziglang.org/builds/zig-linux-powerpc64le-0.11.0-dev.1507+6f13a725a.tar.xz) &#124; [powerpc](https://ziglang.org/builds/zig-linux-powerpc-0.11.0-dev.1507+6f13a725a.tar.xz) |
+| windows | [x86_64](https://ziglang.org/builds/zig-windows-x86_64-0.11.0-dev.1639+438b71155.zip) &#124; [x86](https://ziglang.org/builds/zig-windows-x86-0.11.0-dev.1639+438b71155.zip) &#124; [aarch64](https://ziglang.org/builds/zig-windows-aarch64-0.11.0-dev.1639+438b71155.zip) |
+| macos | [aarch64](https://ziglang.org/builds/zig-macos-aarch64-0.11.0-dev.1639+438b71155.tar.xz) &#124; [x86_64](https://ziglang.org/builds/zig-macos-x86_64-0.11.0-dev.1639+438b71155.tar.xz) |
+| linux | [x86_64](https://ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.1639+438b71155.tar.xz) &#124; [x86](https://ziglang.org/builds/zig-linux-x86-0.11.0-dev.1639+438b71155.tar.xz) &#124; [aarch64](https://ziglang.org/builds/zig-linux-aarch64-0.11.0-dev.1639+438b71155.tar.xz) &#124; [riscv64](https://ziglang.org/builds/zig-linux-riscv64-0.11.0-dev.1639+438b71155.tar.xz) &#124; [powerpc64le](https://ziglang.org/builds/zig-linux-powerpc64le-0.11.0-dev.1639+438b71155.tar.xz) &#124; [powerpc](https://ziglang.org/builds/zig-linux-powerpc-0.11.0-dev.1639+438b71155.tar.xz) |
 
 - build API refactored
     - https://devlog.hexops.com/2023/zig-0-11-breaking-build-changes/
