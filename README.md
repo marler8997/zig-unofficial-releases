@@ -14,11 +14,51 @@ changes at the top.
 
 | Date       | Version                   | The Gist |
 |------------|---------------------------|-------------|
+| 2023-04-16 | 0.11.0-dev.2619+bd3e248c7 [summary](#0110-dev2619bd3e248c7-summary) | HTTP Server added to std |
 | 2023-04-02 | 0.11.0-dev.2336+5b82b4004 [summary](#0110-dev23365b82b4004-summary) |  |
 | 2023-03-18 | 0.11.0-dev.2157+f56f3c582 [summary](#0110-dev2157f56f3c582-summary) | zig build parallelism |
 | 2023-03-04 | 0.11.0-dev.1862+e7f128c20 [summary](#0110-dev1862e7f128c20-summary) | new for-loop syntax |
 | 2023-02-18 | 0.11.0-dev.1639+438b71155 [summary](#0110-dev1639438b71155-summary) | build API refactored |
 | 2023-02-01 | 0.11.0-dev.1507+6f13a725a | last version before the build API was changed |
+
+### 0.11.0-dev.2619+bd3e248c7 Summary
+
+| Platform | Download Link |
+|----------|---------------|
+| windows | [x86_64](https://ziglang.org/builds/zig-windows-x86_64-0.11.0-dev.2619+bd3e248c7.zip) &#124; [x86](https://ziglang.org/builds/zig-windows-x86-0.11.0-dev.2619+bd3e248c7.zip) &#124; [aarch64](https://ziglang.org/builds/zig-windows-aarch64-0.11.0-dev.2619+bd3e248c7.zip) |
+| macos | [aarch64](https://ziglang.org/builds/zig-macos-aarch64-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [x86_64](https://ziglang.org/builds/zig-macos-x86_64-0.11.0-dev.2619+bd3e248c7.tar.xz) |
+| linux | [x86_64](https://ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [x86](https://ziglang.org/builds/zig-linux-x86-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [aarch64](https://ziglang.org/builds/zig-linux-aarch64-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [riscv64](https://ziglang.org/builds/zig-linux-riscv64-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [powerpc64le](https://ziglang.org/builds/zig-linux-powerpc64le-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [powerpc](https://ziglang.org/builds/zig-linux-powerpc-0.11.0-dev.2619+bd3e248c7.tar.xz) |
+
+- std.http.Server added
+- std.Build.CompileStep
+    - removed run and install functions (big breaking change)
+    - removed redundant dest_builder field (already know as step.owner)
+    - deleted install_step field
+    - output_dir removed, use FileSource abstraction instead
+    - setName, setFilter and setTestRunner removed, pass as options instead
+- std.Build.RunStep no longer closes stdin
+- Update to LLVM16
+- GeneralPurposeAllocator: catch invalid frees
+- new objcopy options, --strip-debug, --strip-all, -add-gnu-debuglink, --only-keep-debug
+- std.MultiArrayList support for tagged unions
+- std.math.log10 added
+- some backward compatibility added to glibc headers around fcntl
+- os_log/signpost/subset of Apple's QOS api added to srd.c.darwin
+- madvise flags and procctl added to std.c.freebsd
+- mincore syscall added for linux
+- termios constants added to std.c.netbsd
+- std.json.strigify now uses inferred error so it can support more error than `@TypeOf(out_stream_.Error)`
+- std.mem.reverseIterator: accepts pointer to array and added nextPtr
+- std.os.sendto now uses ws2_32 on Windows
+- c_char type added
+- support for the spirv target
+- zig cc handle the -r flag
+- linker -wrap flag added
+- macos libc SDK updated to 13.3
+- updated YAML parser (used for MacOS linker)
+- more work to various linkers
+- more work to x86_64 backend
+
 
 ### 0.11.0-dev.2336+5b82b4004 Summary
 
