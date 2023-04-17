@@ -42,7 +42,9 @@ changes at the top.
 - new objcopy options, --strip-debug, --strip-all, -add-gnu-debuglink, --only-keep-debug
 - std.MultiArrayList support for tagged unions
 - std.math.log10 added
-- some backward compatibility added to glibc headers around fcntl
+- some backwards compatibility added to glibc headers
+    - now possible to use `fcntl` with glibc 2.27 or older and
+      the `res_{,n}{search,query,querydomain}` functions with glibc 2.33 or older.
 - os_log/signpost/subset of Apple's QOS api added to srd.c.darwin
 - madvise flags and procctl added to std.c.freebsd
 - mincore syscall added for linux
