@@ -37,11 +37,19 @@ pub fn main() !void {
     var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
     const al = arena.allocator();
     const cmd_args = try std.process.argsAlloc(al);
-    if (cmd_args.len != 2) {
-        try std.io.getStdErr().writer().writeAll("Usage: zig run makelinks.zig -- VERSION\n");
+    if (cmd_args.len != 3) {
+        try std.io.getStdErr().writer().writeAll("Usage: zig run makelinks.zig -- VERSION ziglang|bazel\n");
         std.os.exit(0xff);
     }
     const version = cmd_args[1];
+    const kind_str = cmd_args[2];
+
+    const kind : enum { ziglang, bazel } = blk: {
+        if (std.mem.eql(u8, kind_str, "ziglang")) break :blk .ziglang;
+        if (std.mem.eql(u8, kind_str, "bazel")) break :blk .bazel;
+        std.log.err("expected 'ziglang' or 'bazel' but got '{s}'", .{kind_str});
+        std.os.exit(0xff);
+    };
 
     const stdout = std.io.getStdOut().writer();
     try stdout.writeAll("| Platform | Download Link |\n");
@@ -55,12 +63,24 @@ pub fn main() !void {
         for (platform.arches) |arch| {
             try links_writer.writeAll(prefix);
             prefix = " &#124; ";
-            try links_writer.print("[{[arch]s}](https://ziglang.org/builds/zig-{[name]s}-{[arch]s}-{[version]s}.{[ext]s})", .{
-                .arch = arch,
-                .name = platform.name,
-                .version = version,
-                .ext = platform.ext,
-            });
+            switch (kind) {
+                .ziglang => try links_writer.print(
+                    "[{[arch]s}](https://ziglang.org/builds/zig-{[name]s}-{[arch]s}-{[version]s}.{[ext]s})", .{
+                        .arch = arch,
+                        .name = platform.name,
+                        .version = version,
+                        .ext = platform.ext,
+                    },
+                ),
+                .bazel => try links_writer.print(
+                    "[{[arch]s}](https://mirror.bazel.build/ziglang.org/builds/zig-{[name]s}-{[arch]s}-{[version]s}.{[ext]s})", .{
+                        .arch = arch,
+                        .name = platform.name,
+                        .version = version,
+                        .ext = platform.ext,
+                    },
+                ),
+            }
         }
         try stdout.print("| {s} | {s} |\n", .{platform.name, links_buf.items});
     }

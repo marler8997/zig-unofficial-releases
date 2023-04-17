@@ -25,9 +25,9 @@ changes at the top.
 
 | Platform | Download Link |
 |----------|---------------|
-| windows | [x86_64](https://ziglang.org/builds/zig-windows-x86_64-0.11.0-dev.2619+bd3e248c7.zip) &#124; [x86](https://ziglang.org/builds/zig-windows-x86-0.11.0-dev.2619+bd3e248c7.zip) &#124; [aarch64](https://ziglang.org/builds/zig-windows-aarch64-0.11.0-dev.2619+bd3e248c7.zip) |
-| macos | [aarch64](https://ziglang.org/builds/zig-macos-aarch64-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [x86_64](https://ziglang.org/builds/zig-macos-x86_64-0.11.0-dev.2619+bd3e248c7.tar.xz) |
-| linux | [x86_64](https://ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [x86](https://ziglang.org/builds/zig-linux-x86-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [aarch64](https://ziglang.org/builds/zig-linux-aarch64-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [riscv64](https://ziglang.org/builds/zig-linux-riscv64-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [powerpc64le](https://ziglang.org/builds/zig-linux-powerpc64le-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [powerpc](https://ziglang.org/builds/zig-linux-powerpc-0.11.0-dev.2619+bd3e248c7.tar.xz) |
+| windows | [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-windows-x86_64-0.11.0-dev.2619+bd3e248c7.zip) &#124; [x86](https://mirror.bazel.build/ziglang.org/builds/zig-windows-x86-0.11.0-dev.2619+bd3e248c7.zip) &#124; [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-windows-aarch64-0.11.0-dev.2619+bd3e248c7.zip) |
+| macos | [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-macos-aarch64-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-macos-x86_64-0.11.0-dev.2619+bd3e248c7.tar.xz) |
+| linux | [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [x86](https://mirror.bazel.build/ziglang.org/builds/zig-linux-x86-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-aarch64-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [riscv64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-riscv64-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [powerpc64le](https://mirror.bazel.build/ziglang.org/builds/zig-linux-powerpc64le-0.11.0-dev.2619+bd3e248c7.tar.xz) &#124; [powerpc](https://mirror.bazel.build/ziglang.org/builds/zig-linux-powerpc-0.11.0-dev.2619+bd3e248c7.tar.xz) |
 
 - std.http.Server added
 - std.Build.CompileStep
