@@ -14,12 +14,64 @@ changes at the top.
 
 | Date       | Version                   | The Gist |
 |------------|---------------------------|-------------|
+| 2023-04-30 | 0.11.0-dev.2892+fd6200eda [summary](#0110-dev2892fd6200eda-summary) | `@memcpy`/`@memset` now work with slices |
 | 2023-04-16 | 0.11.0-dev.2619+bd3e248c7 [summary](#0110-dev2619bd3e248c7-summary) | HTTP Server added to std |
 | 2023-04-02 | 0.11.0-dev.2336+5b82b4004 [summary](#0110-dev23365b82b4004-summary) |  |
 | 2023-03-18 | 0.11.0-dev.2157+f56f3c582 [summary](#0110-dev2157f56f3c582-summary) | zig build parallelism |
 | 2023-03-04 | 0.11.0-dev.1862+e7f128c20 [summary](#0110-dev1862e7f128c20-summary) | new for-loop syntax |
 | 2023-02-18 | 0.11.0-dev.1639+438b71155 [summary](#0110-dev1639438b71155-summary) | build API refactored |
 | 2023-02-01 | 0.11.0-dev.1507+6f13a725a | last version before the build API was changed |
+
+### 0.11.0-dev.2892+fd6200eda Summary
+
+| Platform | Download Link |
+|----------|---------------|
+| windows | [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-windows-x86_64-0.11.0-dev.2892+fd6200eda.zip) &#124; [x86](https://mirror.bazel.build/ziglang.org/builds/zig-windows-x86-0.11.0-dev.2892+fd6200eda.zip) &#124; [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-windows-aarch64-0.11.0-dev.2892+fd6200eda.zip) |
+| macos | [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-macos-aarch64-0.11.0-dev.2892+fd6200eda.tar.xz) &#124; [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-macos-x86_64-0.11.0-dev.2892+fd6200eda.tar.xz) |
+| linux | [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.2892+fd6200eda.tar.xz) &#124; [x86](https://mirror.bazel.build/ziglang.org/builds/zig-linux-x86-0.11.0-dev.2892+fd6200eda.tar.xz) &#124; [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-aarch64-0.11.0-dev.2892+fd6200eda.tar.xz) &#124; [riscv64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-riscv64-0.11.0-dev.2892+fd6200eda.tar.xz) &#124; [powerpc64le](https://mirror.bazel.build/ziglang.org/builds/zig-linux-powerpc64le-0.11.0-dev.2892+fd6200eda.tar.xz) &#124; [powerpc](https://mirror.bazel.build/ziglang.org/builds/zig-linux-powerpc-0.11.0-dev.2892+fd6200eda.tar.xz) |
+
+- `@memcpy` and `@memset` now support slices
+- `@inComptime` builtin added
+- options added to CompileStep init, "link_libc", "single_threaded", "use_llvm", "use_lld"
+- `GeneralPuproseAllocator.deinit` now returns `Check` enum  with `ok` or `leak` instead of a `bool`
+- `std.json.parse` now supports `@Vector`
+- `std.net.StreamServer.Options` added `reuse_port`
+- `std.Build.RunStep` return type of `captureStdOut` fixed to be `FileSource`
+- `std.http.Client`
+    - added `redirect`
+    - errors updated
+    - basic proxy support added
+- `std.http.Server`
+    - errors updated
+    - fixed reading chunked bodies
+    - `deinit` added to `Response`
+- `std.http.Field` added
+- `std.http.Headers`, added some `clear*` methods
+- `std.math` added lerp function
+- sigevent added to supported platforms
+- `std.os.linux`, new `CAP` constants added, `io_uring_{probe/restriction}` fixed
+- `std.c.darwin`, added subset of libproc api
+- `std.c.freebsd`
+    - added `reallocf`, `getentropy`, `(cpuset/sched)_(get/set)affinity`, `mincore` and `elf_aux_info` functions
+    - added mcontext layout for x86
+- `std.c.netbsd`, added pthread and cpu affinity api
+- Windows
+    - use NtSetInformationFile in DeleteFile to avoid silent failures and improved error handling
+    - leaks fixed if `LockFile` fails after opening a file handle
+    - stack traces during crashes fixed
+- WASM
+    - no longer uses simplified `start.zig` logic
+    - `cmpxchg{weak/strong}`, `@atomicLoad`, `@atomicRmw` and `@fence` implemented
+    - `cmp_lt_errors_len` instruction implemented
+    - more runtime safety checks
+- Haiku, added `find_path` decl and implemented `selfExePath`
+- option exposed to produce 64-bit DWARF format
+- translate-c: support brace-closed string initializers
+- some fixes inside std.Thread implementation
+- more work to x86_64 backend
+- more work to various linkers
+- more work to C backend
+- more work to autodoc
 
 ### 0.11.0-dev.2619+bd3e248c7 Summary
 
