@@ -14,6 +14,7 @@ changes at the top.
 
 | Date       | Version                   | The Gist |
 |------------|---------------------------|-------------|
+| 2023-05-15 | 0.11.0-dev.3132+465272921 [summary](#0110-dev3132465272921-summary) | `std.build.*Step` renamed to `std.Build.Step.*` |
 | 2023-04-30 | 0.11.0-dev.2892+fd6200eda [summary](#0110-dev2892fd6200eda-summary) | `@memcpy`/`@memset` now work with slices |
 | 2023-04-16 | 0.11.0-dev.2619+bd3e248c7 [summary](#0110-dev2619bd3e248c7-summary) | HTTP Server added to std |
 | 2023-04-02 | 0.11.0-dev.2336+5b82b4004 [summary](#0110-dev23365b82b4004-summary) |  |
@@ -21,6 +22,50 @@ changes at the top.
 | 2023-03-04 | 0.11.0-dev.1862+e7f128c20 [summary](#0110-dev1862e7f128c20-summary) | new for-loop syntax |
 | 2023-02-18 | 0.11.0-dev.1639+438b71155 [summary](#0110-dev1639438b71155-summary) | build API refactored |
 | 2023-02-01 | 0.11.0-dev.1507+6f13a725a | last version before the build API was changed |
+
+### 0.11.0-dev.3132+465272921 Summary
+
+| Platform | Download Link |
+|----------|---------------|
+| windows | [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-windows-x86_64-0.11.0-dev.3132+465272921.zip) &#124; [x86](https://mirror.bazel.build/ziglang.org/builds/zig-windows-x86-0.11.0-dev.3132+465272921.zip) &#124; [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-windows-aarch64-0.11.0-dev.3132+465272921.zip) |
+| macos | [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-macos-aarch64-0.11.0-dev.3132+465272921.tar.xz) &#124; [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-macos-x86_64-0.11.0-dev.3132+465272921.tar.xz) |
+| linux | [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.3132+465272921.tar.xz) &#124; [x86](https://mirror.bazel.build/ziglang.org/builds/zig-linux-x86-0.11.0-dev.3132+465272921.tar.xz) &#124; [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-aarch64-0.11.0-dev.3132+465272921.tar.xz) &#124; [riscv64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-riscv64-0.11.0-dev.3132+465272921.tar.xz) &#124; [powerpc64le](https://mirror.bazel.build/ziglang.org/builds/zig-linux-powerpc64le-0.11.0-dev.3132+465272921.tar.xz) &#124; [powerpc](https://mirror.bazel.build/ziglang.org/builds/zig-linux-powerpc-0.11.0-dev.3132+465272921.tar.xz) |
+
+- `std.build.*Step` renamed to `std.Build.Step.*`
+- `@memset` and `@memcpy` fixes and wider use throughout the stdlib
+- build runner: fix a race condition that results in `error: FileNotFound`.
+- add multi-argument `@min`/`@max`
+- `test_runner`
+   - log improvements on test failures
+   - disallow named test declarations with duplicate names
+- `std.c.darwin`: add cpu affinity api for macOS
+- `std.meta` remove tagName, use `@tagName` or `@errorName` directly
+- `std.fmt` add `parseIntSizeSuffix` for numbers like `2G`, `2GiB` or `2Q`.
+- `std.mem` add `indexOfNone*`
+- `std.enums` add `tagName`
+- `std.os.linux`
+  - add `tc{set,get}pgrp`
+  - add some NUMA support
+- `std.c.darwin` add basic darwin's host_statistics data
+- `std.c.freebsd`
+  - add domainset api
+  - add `kinfo_vmobject`
+  - add ioctl base operands
+- `std.c.openbsd` add sigcontext/ucontext for arm64
+- `std.http`
+  - fix keepalive and buffer writes
+  - use larger buffer to hit faster TLS code
+  - `Server`
+      - Response gets an allocator
+      - use client recommendation for keepalive
+      - use enum for reset state instead of bool
+- linker: support `--dynamicbase`
+- more work to various linkers
+- work on sparc64 backend
+- work on spirv backend
+- work on x86_64 backend
+- more work on autodoc
+- autodoc: updated favicon to the latest logo mark!
 
 ### 0.11.0-dev.2892+fd6200eda Summary
 
