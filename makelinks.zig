@@ -5,25 +5,25 @@ const Platform = struct {
     ext: []const u8,
     arches: []const []const u8,
 };
-const platforms = [_]Platform{.{
+const platforms = [_]Platform{ .{
     .name = "windows",
     .ext = "zip",
-    .arches = &[_][]const u8 {
+    .arches = &[_][]const u8{
         "x86_64",
         "x86",
         "aarch64",
     },
-},.{
+}, .{
     .name = "macos",
     .ext = "tar.xz",
-    .arches = &[_][]const u8 {
+    .arches = &[_][]const u8{
         "aarch64",
         "x86_64",
     },
-},.{
+}, .{
     .name = "linux",
     .ext = "tar.xz",
-    .arches = &[_][]const u8 {
+    .arches = &[_][]const u8{
         "x86_64",
         "x86",
         "aarch64",
@@ -31,7 +31,7 @@ const platforms = [_]Platform{.{
         "powerpc64le",
         "powerpc",
     },
-}};
+} };
 
 pub fn main() !void {
     var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
@@ -44,7 +44,7 @@ pub fn main() !void {
     const version = cmd_args[1];
     const kind_str = cmd_args[2];
 
-    const kind : enum { ziglang, bazel } = blk: {
+    const kind: enum { ziglang, bazel } = blk: {
         if (std.mem.eql(u8, kind_str, "ziglang")) break :blk .ziglang;
         if (std.mem.eql(u8, kind_str, "bazel")) break :blk .bazel;
         std.log.err("expected 'ziglang' or 'bazel' but got '{s}'", .{kind_str});
@@ -52,6 +52,7 @@ pub fn main() !void {
     };
 
     const stdout = std.io.getStdOut().writer();
+    try stdout.print("### {s} Summary\n\n", .{version});
     try stdout.writeAll("| Platform | Download Link |\n");
     try stdout.writeAll("|----------|---------------|\n");
     for (platforms) |platform| {
@@ -65,7 +66,8 @@ pub fn main() !void {
             prefix = " &#124; ";
             switch (kind) {
                 .ziglang => try links_writer.print(
-                    "[{[arch]s}](https://ziglang.org/builds/zig-{[name]s}-{[arch]s}-{[version]s}.{[ext]s})", .{
+                    "[{[arch]s}](https://ziglang.org/builds/zig-{[name]s}-{[arch]s}-{[version]s}.{[ext]s})",
+                    .{
                         .arch = arch,
                         .name = platform.name,
                         .version = version,
@@ -73,7 +75,8 @@ pub fn main() !void {
                     },
                 ),
                 .bazel => try links_writer.print(
-                    "[{[arch]s}](https://mirror.bazel.build/ziglang.org/builds/zig-{[name]s}-{[arch]s}-{[version]s}.{[ext]s})", .{
+                    "[{[arch]s}](https://mirror.bazel.build/ziglang.org/builds/zig-{[name]s}-{[arch]s}-{[version]s}.{[ext]s})",
+                    .{
                         .arch = arch,
                         .name = platform.name,
                         .version = version,
@@ -82,6 +85,6 @@ pub fn main() !void {
                 ),
             }
         }
-        try stdout.print("| {s} | {s} |\n", .{platform.name, links_buf.items});
+        try stdout.print("| {s} | {s} |\n", .{ platform.name, links_buf.items });
     }
 }
