@@ -14,6 +14,7 @@ changes at the top.
 
 | Date       | Version                   | The Gist |
 |------------|---------------------------|-------------|
+| 2023-05-29 | 0.11.0-dev.3312+ab37ab33c [summary](#0110-dev3312ab37ab33c-summary) | lang: strict separation of comptime from runtime |
 | 2023-05-15 | 0.11.0-dev.3132+465272921 [summary](#0110-dev3132465272921-summary) | `std.build.*Step` renamed to `std.Build.Step.*` |
 | 2023-04-30 | 0.11.0-dev.2892+fd6200eda [summary](#0110-dev2892fd6200eda-summary) | `@memcpy`/`@memset` now work with slices |
 | 2023-04-16 | 0.11.0-dev.2619+bd3e248c7 [summary](#0110-dev2619bd3e248c7-summary) | HTTP Server added to std |
@@ -22,6 +23,49 @@ changes at the top.
 | 2023-03-04 | 0.11.0-dev.1862+e7f128c20 [summary](#0110-dev1862e7f128c20-summary) | new for-loop syntax |
 | 2023-02-18 | 0.11.0-dev.1639+438b71155 [summary](#0110-dev1639438b71155-summary) | build API refactored |
 | 2023-02-01 | 0.11.0-dev.1507+6f13a725a | last version before the build API was changed |
+
+### 0.11.0-dev.3312+ab37ab33c
+
+| Platform | Download Link |
+|----------|---------------|
+| windows | [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-windows-x86_64-0.11.0-dev.3312+ab37ab33c.zip) &#124; [x86](https://mirror.bazel.build/ziglang.org/builds/zig-windows-x86-0.11.0-dev.3312+ab37ab33c.zip) &#124; [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-windows-aarch64-0.11.0-dev.3312+ab37ab33c.zip) |
+| macos | [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-macos-aarch64-0.11.0-dev.3312+ab37ab33c.tar.xz) &#124; [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-macos-x86_64-0.11.0-dev.3312+ab37ab33c.tar.xz) |
+| linux | [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.3312+ab37ab33c.tar.xz) &#124; [x86](https://mirror.bazel.build/ziglang.org/builds/zig-linux-x86-0.11.0-dev.3312+ab37ab33c.tar.xz) &#124; [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-aarch64-0.11.0-dev.3312+ab37ab33c.tar.xz) &#124; [riscv64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-riscv64-0.11.0-dev.3312+ab37ab33c.tar.xz) &#124; [powerpc64le](https://mirror.bazel.build/ziglang.org/builds/zig-linux-powerpc64le-0.11.0-dev.3312+ab37ab33c.tar.xz) &#124; [powerpc](https://mirror.bazel.build/ziglang.org/builds/zig-linux-powerpc-0.11.0-dev.3312+ab37ab33c.tar.xz) |
+
+- core language changes:
+  - more strictly separate comptime from runtime. E.g. `comptime_slice.len`
+    will not be permitted, if `comptime_slice` is a comptime variable. Use
+    `@typeInfo(comptime_slice).Struct.fields.len`
+- `zig cc`
+  - add reading from stdin, like `cat main.c | zig cc -x c -`
+  - add `--build-id` (also for `build.zig`)
+  - add `-###`
+- `std.json` add streaming
+- `std.sort` add pdqsort and heapsort
+- `std.debug.*TTY*` move to `std.debug.tty.*`
+- `std.Thread` refine stack sizes
+- `std.crypto`
+  - `Poly1305` speed up by 1.5-2x
+  - `ghash` speed up by 2.5x on wasm
+  - `chacha` performance improvements when AVX2 and AVX512 are available
+  - add `std.crypto.ff` -- alloc-free, constant-time field arithmetic
+  - fix RSA hacks and remove allocator requirement from RSA validator
+- `std.c`, `std.os`
+  - `linux` add timer api
+  - `linux`, `freebsd`: add `sched_setaffinity`
+  - `freebsd` add `rfork`, `ptrace`
+  - `netbsd` add `ptrace`
+  - `darwin` `*copyfile*` api update
+- libc
+  - `glibc` add `__dn_skipname`, `__dn_comp`, `__dn_expand` workaronds for
+    older glibc versions
+  - `wasi` update libc to 3189cd1ceec8771e8f27faab58ad05d4d6c369ef
+- `std.fs.file`, `std.fmt`, `std.event.loop` rename a bunch of enum parameter
+  values to snake case
+- more work on autodoc
+- work on spirv backend
+- work on wasm backend
+- work on x86_64 backend
 
 ### 0.11.0-dev.3132+465272921 Summary
 
