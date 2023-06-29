@@ -14,6 +14,7 @@ changes at the top.
 
 | Date       | Version                   | The Gist |
 |------------|---------------------------|-------------|
+| 2023-06-29 | 0.11.0-dev.3886+0c1bfe271 [summary](#0110-dev38860c1bfe271-summary) | musl v1.2.3 -> v1.2.4 |
 | 2023-05-29 | 0.11.0-dev.3312+ab37ab33c [summary](#0110-dev3312ab37ab33c-summary) | lang: strict separation of comptime from runtime |
 | 2023-05-15 | 0.11.0-dev.3132+465272921 [summary](#0110-dev3132465272921-summary) | `std.build.*Step` renamed to `std.Build.Step.*` |
 | 2023-04-30 | 0.11.0-dev.2892+fd6200eda [summary](#0110-dev2892fd6200eda-summary) | `@memcpy`/`@memset` now work with slices |
@@ -23,6 +24,88 @@ changes at the top.
 | 2023-03-04 | 0.11.0-dev.1862+e7f128c20 [summary](#0110-dev1862e7f128c20-summary) | new for-loop syntax |
 | 2023-02-18 | 0.11.0-dev.1639+438b71155 [summary](#0110-dev1639438b71155-summary) | build API refactored |
 | 2023-02-01 | 0.11.0-dev.1507+6f13a725a | last version before the build API was changed |
+
+### 0.11.0-dev.3886+0c1bfe271 Summary
+
+| Platform | Download Link |
+|----------|---------------|
+| windows | [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-windows-x86_64-0.11.0-dev.3886+0c1bfe271.zip) &#124; [x86](https://mirror.bazel.build/ziglang.org/builds/zig-windows-x86-0.11.0-dev.3886+0c1bfe271.zip) &#124; [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-windows-aarch64-0.11.0-dev.3886+0c1bfe271.zip) |
+| macos | [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-macos-aarch64-0.11.0-dev.3886+0c1bfe271.tar.xz) &#124; [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-macos-x86_64-0.11.0-dev.3886+0c1bfe271.tar.xz) |
+| linux | [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.3886+0c1bfe271.tar.xz) &#124; [x86](https://mirror.bazel.build/ziglang.org/builds/zig-linux-x86-0.11.0-dev.3886+0c1bfe271.tar.xz) &#124; [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-aarch64-0.11.0-dev.3886+0c1bfe271.tar.xz) &#124; [riscv64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-riscv64-0.11.0-dev.3886+0c1bfe271.tar.xz) &#124; [powerpc64le](https://mirror.bazel.build/ziglang.org/builds/zig-linux-powerpc64le-0.11.0-dev.3886+0c1bfe271.tar.xz) &#124; [powerpc](https://mirror.bazel.build/ziglang.org/builds/zig-linux-powerpc-0.11.0-dev.3886+0c1bfe271.tar.xz) |
+
+This release comes after a 3.5-week wait instead of the casual 2 weeks.
+
+- `zig cc`
+  - handle `--libray :path/to/lib.so` (`-l:path/to/lib.EXT`)
+  - handle `-Wl,--version`
+  - handle `-Wl,-version-script` (in addition to `-Wl,--version-script`)
+- `compiler_rt` add a few routines for f128
+- `musl` upgrade from v1.2.3 to v1.2.4
+- `objcopy`
+  - add `--compress-debug-sections`
+  - support some more elf file variants
+- `std.c.<OS>`, `std.os.<OS>`
+  - `windows`
+    - use posix semantics to delete files
+    - support UNC, rooted, drive relative, and namespaced/device paths
+  - `*bsd` fix `std.c.getdents`
+  - `*bsd` expose timer api
+  - `freebsd` a few kinfo api fixes (`std.c.freebsd`)
+  - `linux`
+    - update kernel headers to 6.3.8
+  - `plan9`
+    - support lazy symbols
+    - flesh out stdlib enough to allow not using simplified start logic
+- `std.mem`
+  - split `split` to `splitScalar`, `splitSequence`, `splitAny`
+  - split `tokenize` to `tokenizeScalar`, `tokenizeSequence`, `tokenizeAny`
+  - rename `align(Forward|Backward)Generic` to `align(Forward|Backward)`
+- `std.math`
+  - bigint: add `Sqrt`
+- `std.rand`
+  - publicize `std.rand.ziggurat`
+- `std.crypto`
+  - `rsa` remove usage of allocators
+  - `bcrypt` allow very large passwords to be pre-hashed
+  - `wyhash` reimplement v4.1. Changes the current hashes.
+  - `Ed25519` remove ``sign`, `verify`, `key_blinding.sign`, and
+    `key_blinding.unblindPublicKey`
+  - `pcurves` don't assume that points with X=0 are at infinity
+- `std.compress` add zlib stream writer
+- `std.json` support user-provided jsonParse method
+- `std.io`
+  - add `reader.Reader.streamUntilDelimiter`
+  - remove `FindByteOutStream`, `findByteOutStream`
+- `std.Build`
+  - `Step.Compile` remove `addSystemIncludeDir`, `addIncludeDir`, `addLibPath`,
+    and `addFrameworkDir`
+- `std.builtin`
+   - remove `TypeInfo` and `Type.FnArg`
+   - replace `Version` with `SemanticVersion`
+- `std` misc
+  - `Thread` implement `spawn`, `join`, `detach` for WASI
+  - `cstr` deprecate namespace
+  - `debug` remove `warn`
+  - `fmt.formatValue` remove `e`, `E`, `z`, `Z`, `B` and `Bi` specifiers
+  - `meta` remove `Vector`, `TagType`
+  - `fifo.LinearFifo` remove `ensureCapacity`
+- `std.http`
+  - add TlsAlert descriptions so that they can be viewed in err return traces
+  - fix segfault while redirecting
+  - fix getting Transfer-Encoding value
+- core language
+  - rename `@XtoY` to `YfromX`
+  - Use InternPool for all types and constant values
+    [#15569](https://github.com/ziglang/zig/pull/15569). This seems like a
+    significant change (29k lines changed), but I have no clue on it's
+    significance.
+  - Simplify and compact switch ZIR, and resolve union payload captures with
+    PTR.
+- more work on autodoc
+- work on macho linker
+- work on spirv backend
+- work on wasm backend
+- work on x86_64 backend
 
 ### 0.11.0-dev.3312+ab37ab33c
 
