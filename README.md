@@ -14,6 +14,7 @@ changes at the top.
 
 | Date       | Version                   | The Gist |
 |------------|---------------------------|-------------|
+| 2023-07-15 | 0.11.0-dev.4002+7dd1cf26f [summary](#0110-dev40027dd1cf26f-summary) | ??? |
 | 2023-06-29 | 0.11.0-dev.3886+0c1bfe271 [summary](#0110-dev38860c1bfe271-summary) | `@xToY` renamed to `@yFromX` |
 | 2023-05-29 | 0.11.0-dev.3312+ab37ab33c [summary](#0110-dev3312ab37ab33c-summary) | lang: strict separation of comptime from runtime |
 | 2023-05-15 | 0.11.0-dev.3132+465272921 [summary](#0110-dev3132465272921-summary) | `std.build.*Step` renamed to `std.Build.Step.*` |
@@ -24,6 +25,16 @@ changes at the top.
 | 2023-03-04 | 0.11.0-dev.1862+e7f128c20 [summary](#0110-dev1862e7f128c20-summary) | new for-loop syntax |
 | 2023-02-18 | 0.11.0-dev.1639+438b71155 [summary](#0110-dev1639438b71155-summary) | build API refactored |
 | 2023-02-01 | 0.11.0-dev.1507+6f13a725a | last version before the build API was changed |
+
+### 0.11.0-dev.4002+7dd1cf26f Summary
+
+| Platform | Download Link |
+|----------|---------------|
+| windows | [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-windows-x86_64-0.11.0-dev.4002+7dd1cf26f.zip) &#124; [x86](https://mirror.bazel.build/ziglang.org/builds/zig-windows-x86-0.11.0-dev.4002+7dd1cf26f.zip) &#124; [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-windows-aarch64-0.11.0-dev.4002+7dd1cf26f.zip) |
+| macos | [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-macos-aarch64-0.11.0-dev.4002+7dd1cf26f.tar.xz) &#124; [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-macos-x86_64-0.11.0-dev.4002+7dd1cf26f.tar.xz) |
+| linux | [x86_64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.4002+7dd1cf26f.tar.xz) &#124; [x86](https://mirror.bazel.build/ziglang.org/builds/zig-linux-x86-0.11.0-dev.4002+7dd1cf26f.tar.xz) &#124; [aarch64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-aarch64-0.11.0-dev.4002+7dd1cf26f.tar.xz) &#124; [riscv64](https://mirror.bazel.build/ziglang.org/builds/zig-linux-riscv64-0.11.0-dev.4002+7dd1cf26f.tar.xz) &#124; [powerpc64le](https://mirror.bazel.build/ziglang.org/builds/zig-linux-powerpc64le-0.11.0-dev.4002+7dd1cf26f.tar.xz) &#124; [powerpc](https://mirror.bazel.build/ziglang.org/builds/zig-linux-powerpc-0.11.0-dev.4002+7dd1cf26f.tar.xz) |
+
+TODO
 
 ### 0.11.0-dev.3886+0c1bfe271 Summary
 
