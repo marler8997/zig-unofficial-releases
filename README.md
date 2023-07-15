@@ -14,7 +14,7 @@ changes at the top.
 
 | Date       | Version                   | The Gist |
 |------------|---------------------------|-------------|
-| 2023-06-29 | 0.11.0-dev.3886+0c1bfe271 [summary](#0110-dev38860c1bfe271-summary) | musl v1.2.3 -> v1.2.4 |
+| 2023-06-29 | 0.11.0-dev.3886+0c1bfe271 [summary](#0110-dev38860c1bfe271-summary) | `@xToY` renamed to `@yFromX` |
 | 2023-05-29 | 0.11.0-dev.3312+ab37ab33c [summary](#0110-dev3312ab37ab33c-summary) | lang: strict separation of comptime from runtime |
 | 2023-05-15 | 0.11.0-dev.3132+465272921 [summary](#0110-dev3132465272921-summary) | `std.build.*Step` renamed to `std.Build.Step.*` |
 | 2023-04-30 | 0.11.0-dev.2892+fd6200eda [summary](#0110-dev2892fd6200eda-summary) | `@memcpy`/`@memset` now work with slices |
@@ -35,6 +35,7 @@ changes at the top.
 
 This release comes after a 3.5-week wait instead of the casual 2 weeks.
 
+- `@xToY` renamed to `@yFromX`
 - `zig cc`
   - handle `--libray :path/to/lib.so` (`-l:path/to/lib.EXT`)
   - handle `-Wl,--version`
@@ -94,7 +95,6 @@ This release comes after a 3.5-week wait instead of the casual 2 weeks.
   - fix segfault while redirecting
   - fix getting Transfer-Encoding value
 - core language
-  - rename `@XtoY` to `YfromX`
   - Use InternPool for all types and constant values
     [#15569](https://github.com/ziglang/zig/pull/15569). This seems like a
     significant change (29k lines changed), but I have no clue on it's
